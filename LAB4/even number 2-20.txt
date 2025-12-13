@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // --- แบบที่ 1: ใช้ For Loop ---
+    cout << "--- For Loop (Even 2-20) ---" << endl;
+    for (int i = 2; i <= 20; i += 2) { // เริ่ม 2, จบ 20, บวกทีละ 2
+        cout << i << ", ";
+    }
+    cout << endl << endl;
+
+    // --- แบบที่ 2: ใช้ While Loop ---
+    cout << "--- While Loop (Even 2-20) ---" << endl;
+    int j = 2; // เริ่ม 2
+    while (j <= 20) {
+        cout << j << ", ";
+        j += 2; // บวกทีละ 2
+    }
+    cout << endl << endl;
+
+    // --- แบบที่ 3: ใช้ Do-While Loop ---
+    cout << "--- Do-While Loop (Even 2-20) ---" << endl;
+    int k = 2; // เริ่ม 2
+    do {
+        cout << k << ", ";
+        k += 2; // บวกทีละ 2
+    } while (k <= 20);
+    cout << endl;
+
+    return 0;
+}
