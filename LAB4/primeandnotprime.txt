@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+// --- สร้างฟังก์ชันสำหรับตรวจสอบจำนวนเฉพาะ ---
+bool isPrime(int n) {
+    // 1. ถ้าเลขน้อยกว่าหรือเท่ากับ 1 ไม่ใช่จำนวนเฉพาะ
+    if (n <= 1) {
+        return false;
+    }
+
+    // 2. วนลูปเช็คตัวหาร ตั้งแต่เลข 2 ไปจนถึง รากที่สองของ n (i * i <= n)
+    // (วิธีนี้เร็วกว่าวนถึง n เฉยๆ)
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false; // เจอตัวหารลงตัว! แสดงว่าไม่ใช่จำนวนเฉพาะ
+        }
+    }
+
+    // 3. ถ้าวนลูปจนจบแล้วไม่เจอตัวหารเลย แสดงว่าเป็นจำนวนเฉพาะ
+    return true;
+}
+
+// --- ฟังก์ชันหลัก ---
+int main() {
+    int num;
+
+    cout << "Enter a number to check: ";
+    cin >> num;
+
+    // เรียกใช้ฟังก์ชัน isPrime ที่เราสร้างไว้
+    if (isPrime(num) == true) {
+        cout << num << " is a Prime Number." << endl;
+    }
+    else {
+        cout << num << " is NOT a Prime Number." << endl;
+    }
+
+    return 0;
+}
