@@ -1,0 +1,44 @@
+﻿#include <iostream>
+#include <cstdlib> // จำเป็นต้องมี: เพื่อใช้คำสั่ง rand() สุ่มเลข
+#include <ctime>   // จำเป็นต้องมี: เพื่อใช้ time() จับเวลาปัจจุบันมาเป็นค่าตั้งต้น
+using namespace std;
+
+int main() {
+    // 1. ตั้งค่า Seed (เมล็ดพันธุ์) สำหรับการสุ่ม
+    // ถ้าไม่มีบรรทัดนี้ เลขที่สุ่มได้จะเป็นเลขเดิมตลอดทุกครั้งที่รันโปรแกรม
+    srand(time(0));
+
+    // 2. สุ่มตัวเลขปริศนาในช่วง 1 ถึง 100
+    // rand() % 100 จะได้ค่า 0-99 ดังนั้นต้อง +1 เพื่อให้เป็น 1-100
+    int secretNumber = rand() % 100 + 1;
+    
+    int guess;
+    int attempts = 0; // ตัวแปรไว้นับจำนวนครั้งที่ทาย
+
+    cout << "==================================" << endl;
+    cout << "   Welcome to Number Guessing Game" << endl;
+    cout << "   (I have a number 1 - 100)" << endl;
+    cout << "==================================" << endl;
+
+    // 3. ใช้ do-while loop เพื่อให้ทายซ้ำไปเรื่อยๆ จนกว่าจะถูก
+    do {
+        cout << "Enter your guess: ";
+        cin >> guess;
+        attempts++; // นับจำนวนครั้งที่ทาย
+
+        if (guess > secretNumber) {
+            cout << "Too High! (มากไปครับ)" << endl;
+        } 
+        else if (guess < secretNumber) {
+            cout << "Too Low! (น้อยไปครับ)" << endl;
+        } 
+        else {
+            cout << "\nCorrect! You Win!" << endl;
+            cout << "Secret number is " << secretNumber << endl;
+            cout << "You guessed " << attempts << " times." << endl;
+        }
+
+    } while (guess != secretNumber); // วนลูปตราบใดที่ยังทาย "ไม่ถูก"
+
+    return 0;
+}

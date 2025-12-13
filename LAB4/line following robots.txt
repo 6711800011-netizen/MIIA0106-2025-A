@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string sensorInput;
+
+    cout << "--- Line Following Robot System ---" << endl;
+    cout << "Enter sensor status: Left, Right, Center (or type 'Stop' to quit)" << endl;
+
+    // หุ่นยนต์จะทำงานวนไปเรื่อยๆ ไม่มีวันหยุด (Infinite Loop) จนกว่าจะสั่งปิด
+    while (true) {
+        cout << "\nSensor detects black line at: ";
+        cin >> sensorInput;
+
+        // แปลงเป็นตัวพิมพ์เล็กหรือใหญ่ให้เช็คง่ายๆ (ในที่นี้เช็คตามคำศัพท์)
+        if (sensorInput == "Left" || sensorInput == "left") {
+            // เงื่อนไขที่ 1: เส้นดำอยู่ซ้าย
+            cout << "Action: Turn Left (เลี้ยวซ้าย)" << endl;
+        }
+        else if (sensorInput == "Right" || sensorInput == "right") {
+            // เงื่อนไขที่ 2: เส้นดำอยู่ขวา
+            cout << "Action: Turn Right (เลี้ยวขวา)" << endl;
+        }
+        else if (sensorInput == "Center" || sensorInput == "center") {
+            // เงื่อนไขที่ 3: เส้นดำอยู่กลาง
+            cout << "Action: Go Forward (วิ่งตรงไปข้างหน้า)" << endl;
+        }
+        else if (sensorInput == "Stop" || sensorInput == "stop") {
+            cout << "System Shutdown." << endl;
+            break; // ออกจากลูป
+        }
+        else {
+            cout << "No line detected / Search for line (ไม่เจอเส้น / หยุดรอ)" << endl;
+        }
+    }
+
+    return 0;
+}
