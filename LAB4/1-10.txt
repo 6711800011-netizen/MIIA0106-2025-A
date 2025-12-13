@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // --- แบบที่ 1: ใช้ For Loop (นิยมที่สุด) ---
+    cout << "--- For Loop ---" << endl;
+    for (int i = 1; i <= 10; i++) {
+        cout << i << ", ";
+    }
+    cout << endl << endl;
+
+    // --- แบบที่ 2: ใช้ While Loop ---
+    cout << "--- While Loop ---" << endl;
+    int j = 1; // เริ่มที่ 1
+    while (j <= 10) { // ทำตราบใดที่ยังไม่เกิน 10
+        cout << j << ", ";
+        j++; // บวกเพิ่มทีละ 1
+    }
+    cout << endl << endl;
+
+    // --- แบบที่ 3: ใช้ Do-While Loop ---
+    cout << "--- Do-While Loop ---" << endl;
+    int k = 1; // เริ่มที่ 1
+    do {
+        cout << k << ", ";
+        k++; // บวกเพิ่มทีละ 1
+    } while (k <= 10); // เช็คเงื่อนไขทีหลัง
+    cout << endl;
+
+    return 0;
+}
