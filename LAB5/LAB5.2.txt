@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath> // ใส่ตามคำสั่ง Required Commands
+using namespace std;
+
+// --- ส่วนประกาศฟังก์ชัน (Prototype) ---
+int maxOfThree(int a, int b, int c);
+
+int main() {
+    // กำหนดค่าสมมติ ให้มีเลข 15 อยู่ด้วย เพื่อให้ผลลัพธ์ตรงกับรูปโจทย์
+    int num1 = 5;
+    int num2 = 10;
+    int num3 = 15;
+
+    // เรียกใช้ฟังก์ชันและแสดงผล
+    cout << "Maximum value is: " << maxOfThree(num1, num2, num3) << endl;
+
+    return 0;
+}
+
+// --- ส่วนเขียนไส้ในฟังก์ชัน ---
+int maxOfThree(int a, int b, int c) {
+    int maxVal = a; // สมมติให้ตัวแรกเป็นแชมป์ (ค่ามากสุด) ไปก่อน
+
+    // เปรียบเทียบกับตัวที่ 2
+    if (b > maxVal) {
+        maxVal = b; // ถ้า b มากกว่า ให้ b เป็นแชมป์แทน
+    }
+
+    // เปรียบเทียบกับตัวที่ 3
+    if (c > maxVal) {
+        maxVal = c; // ถ้า c มากกว่า ให้ c เป็นแชมป์แทน
+    }
+
+    return maxVal; // ส่งค่าแชมป์กลับไป
+}
