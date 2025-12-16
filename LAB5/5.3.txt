@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath> // ใส่ตามคำสั่ง Required Commands
+using namespace std;
+
+// --- ส่วนประกาศฟังก์ชัน (Prototype) ---
+void swapValue(int a, int b);
+void swapReference(int& a, int& b);
+
+int main() {
+    // กำหนดค่าเริ่มต้นตามโจทย์
+    int a = 10;
+    int b = 20;
+
+    // 1. แสดงค่าก่อนสลับ
+    cout << "Before swap: a = " << a << ", b = " << b << endl;
+
+    // 2. เรียกใช้แบบ Call by Value (ส่งแค่ค่าไป ตัวจริงไม่เปลี่ยน)
+    swapValue(a, b);
+    cout << "After swap (Call by Value): a = " << a << ", b = " << b << endl;
+
+    // 3. เรียกใช้แบบ Call by Reference (ส่งที่อยู่ไป ตัวจริงสลับกัน)
+    swapReference(a, b);
+    cout << "After swap (Call by Reference): a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
+
+// --- ส่วนเขียนไส้ในฟังก์ชัน ---
+
+// แบบที่ 1: รับค่ามาเฉยๆ (Copy) สลับกันแค่ในนี้ จบฟังก์ชันก็หายไป
+void swapValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+// แบบที่ 2: มีเครื่องหมาย & (Reference) คือชี้ไปที่ตัวแปรเดิมเลย สลับจริง
+void swapReference(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
