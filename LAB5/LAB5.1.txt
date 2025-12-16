@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+// --- 1. สร้างฟังก์ชันคำนวณพื้นที่วงกลม ---
+double circleArea(double radius) {
+    double pi = 3.1416;
+    return pi * radius * radius; // สูตร: พาย x รัศมี x รัศมี
+}
+
+// --- 2. สร้างฟังก์ชันคำนวณพื้นที่สี่เหลี่ยม ---
+double rectArea(double width, double height) {
+    return width * height; // สูตร: กว้าง x ยาว
+}
+
+int main() {
+    // กำหนดค่าสมมติ เพื่อให้ได้ผลลัพธ์ตรงกับรูปตัวอย่าง
+    double r = 5.0;
+    double w = 5.0;
+    double h = 10.0;
+
+    // เรียกใช้ฟังก์ชันและแสดงผล
+    cout << "Circle Area = " << circleArea(r) << endl;
+    cout << "Rectangle Area = " << rectArea(w, h) << endl;
+
+    return 0;
+}
